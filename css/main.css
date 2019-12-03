@@ -5,6 +5,7 @@ html, body {
     font-family: 'PT Sans Caption', sans-serif ;
     font-style: 16px;
     line-height: 1.5;
+    min-width: 280px;
 }
 
 img {
@@ -19,6 +20,10 @@ a {
     width: 1140px;
     margin-left: auto;
     margin-right: auto;
+}
+
+* {
+box-sizing: border-box; /* можно поставить для всех элементов, ширина будет считаться четко по параметру width*/
 }
 
 /* .row {
@@ -49,6 +54,7 @@ background-position: center;
 background-size: cover;
 
 height: 100vh;
+min-height: 400px;
 
 color: #ffffff;
 text-align: center;
@@ -104,6 +110,12 @@ position: relative;
 
 .portfolio-item__img {
     margin-bottom: 17px;
+}
+
+/*для корректного масштабирования при маленьких разрешениях*/
+.portfolio-item__img img {
+    max-width: 100%;
+    height: auto;
 }
 
 .portfolio-item__title {
@@ -233,4 +245,51 @@ p.footer__social-icons a:hover {
 .button:hover {
     color: #061634;
     background-color: #ffffff;
+}
+
+/*При ширине экрана в 1160 и меньше*/
+@media (max-width: 1160px) {
+    .container {
+        width: 100%;
+    }
+
+    .col-4 {
+        width: 100%; /*реальная ширина = width: 100% + border = 0 + padding 15px +15px */
+        box-sizing: border-box; /*ставим для схлопывания паддингов*/
+        margin: 0;
+        margin-bottom: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+
+    .main-header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .main-header__title {
+        font-size: 38px;
+        line-height: 48px;
+        margin-bottom: 15px;
+    }
+
+    .main-header__slogan {
+        font-size: 22px;
+        line-height: 38px;
+    }
+
+    .portfolio {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .main-footer {
+        padding-top: 70px;
+        padding-bottom: 60px;
+    }
 }
